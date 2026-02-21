@@ -1,0 +1,204 @@
+.onboarding {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background-color: var(--bg-primary);
+}
+
+.onboarding__inner {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Brand */
+.onboarding__brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.onboarding__icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--accent-safe-dim);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-safe);
+}
+
+.onboarding__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+}
+
+.onboarding__tagline {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* Card */
+.onboarding__card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-card);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Form */
+.onboarding__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.onboarding__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.onboarding__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.onboarding__optional {
+  font-size: var(--text-xs);
+  color: var(--text-caption);
+  font-weight: 400;
+  background-color: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.onboarding__input {
+  height: 48px;
+  padding: 0 14px;
+  background-color: var(--bg-elevated);
+  border: 1.5px solid var(--accent-muted);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-base);
+  font-weight: 500;
+  transition: var(--transition-base);
+  outline: none;
+  width: 100%;
+}
+
+.onboarding__input::placeholder {
+  color: var(--text-caption);
+  font-weight: 400;
+}
+
+.onboarding__input:focus {
+  border-color: var(--accent-safe);
+  box-shadow: 0 0 0 3px var(--accent-safe-dim);
+}
+
+.onboarding__input--error {
+  border-color: var(--accent-danger);
+}
+
+.onboarding__input[type='number']::-webkit-inner-spin-button,
+.onboarding__input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.onboarding__input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.onboarding__error {
+  font-size: var(--text-xs);
+  color: var(--accent-danger);
+  padding-left: 4px;
+}
+
+/* Sex buttons */
+.onboarding__sex-group {
+  display: flex;
+  gap: 8px;
+}
+
+.onboarding__sex-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--accent-muted);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.onboarding__sex-btn:hover {
+  border-color: var(--text-caption);
+  color: var(--text-primary);
+}
+
+.onboarding__sex-btn--active {
+  background-color: var(--accent-safe-dim);
+  border-color: var(--accent-safe);
+  color: var(--accent-safe);
+}
+
+/* Conditions */
+.onboarding__conditions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.onboarding__condition-pill {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--accent-muted);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.onboarding__condition-pill:hover {
+  border-color: var(--text-caption);
+  color: var(--text-primary);
+}
+
+.onboarding__condition-pill--active {
+  background-color: var(--accent-safe-dim);
+  border-color: var(--accent-safe);
+  color: var(--accent-safe);
+}
+
+/* Privacy */
+.onboarding__privacy {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--text-caption);
+}

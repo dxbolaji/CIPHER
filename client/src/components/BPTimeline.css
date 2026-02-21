@@ -1,0 +1,79 @@
+.bp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bp-timeline__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bp-timeline__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.bp-timeline__mock-badge {
+  font-size: var(--text-xs);
+  color: var(--text-caption);
+  background-color: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.bp-timeline__legend {
+  display: flex;
+  gap: 16px;
+}
+
+.bp-timeline__legend-item {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bp-timeline__legend-item::before {
+  content: '';
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+  display: inline-block;
+}
+
+.bp-timeline__legend-item--sys {
+  color: var(--accent-safe);
+}
+.bp-timeline__legend-item--sys::before {
+  background-color: var(--accent-safe);
+}
+
+.bp-timeline__legend-item--dia {
+  color: var(--accent-warning);
+}
+.bp-timeline__legend-item--dia::before {
+  background-color: var(--accent-warning);
+}
+
+/* Tooltip */
+.bp-timeline__tooltip {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--accent-muted);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: var(--text-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-card);
+}
+
+.bp-timeline__tooltip-date {
+  color: var(--text-caption);
+  margin-bottom: 2px;
+  font-weight: 600;
+}

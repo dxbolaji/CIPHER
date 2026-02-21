@@ -1,0 +1,78 @@
+.bp-form-page {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px 40px;
+}
+
+.bp-form-page__inner {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bp-form-page__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 4px;
+}
+
+.bp-form-page__back {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+}
+
+.bp-form-page__back:hover {
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.bp-form-page__title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Card contents */
+.bp-form__readings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.bp-form__divider {
+  height: 1px;
+  background-color: var(--accent-muted);
+  margin: 24px 0;
+}
+
+.bp-form__lifestyle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bp-form__lifestyle-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Actions */
+.bp-form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

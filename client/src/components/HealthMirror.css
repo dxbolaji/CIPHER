@@ -1,0 +1,54 @@
+.health-mirror {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.health-mirror__label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.health-mirror__narrative {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+
+.health-mirror__empty {
+  font-size: var(--text-sm);
+  color: var(--text-caption);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Loading skeleton */
+.health-mirror__skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.health-mirror__skeleton-line {
+  height: 14px;
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    var(--accent-muted) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: shimmer 1.5s infinite;
+}
+
+.health-mirror__skeleton-line--full { width: 100%; }
+.health-mirror__skeleton-line--three-quarter { width: 75%; }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

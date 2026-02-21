@@ -1,0 +1,140 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-section);
+  max-width: 1200px;
+}
+
+/* Header */
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard__greeting {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dashboard__sub {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dashboard__date {
+  font-size: var(--text-sm);
+  color: var(--text-caption);
+}
+
+/* Middle */
+.dashboard__middle {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: var(--spacing-section);
+}
+
+.dashboard__left-col,
+.dashboard__right-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-section);
+}
+
+.dashboard__card-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+/* Risk card */
+.dashboard__risk-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mirror card */
+.dashboard__mirror-card {
+  flex: 1;
+}
+
+/* Timeline card */
+.dashboard__timeline-card {
+  flex: 1;
+}
+
+/* Stats */
+.dashboard__stats-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__stats-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.dashboard__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.dashboard__stat-value {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.dashboard__stat-label {
+  font-size: var(--text-xs);
+  color: var(--text-caption);
+}
+
+.dashboard__stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--accent-muted);
+}
+
+/* CTA */
+.dashboard__cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard__cta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard__cta-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dashboard__cta-sub {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
