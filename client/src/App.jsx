@@ -6,6 +6,8 @@ import Layout from "./components/Layout.jsx";
 import Onboarding from "./pages/Onboarding.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import BPInputForm from "./components/BPInputForm.jsx";
+import History from "./pages/History.jsx";
+import ReportExport from "./components/ReportExport.jsx";
 import * as api from "./api.js";
 import './global.css';
 
@@ -147,6 +149,21 @@ export default function App() {
             <BPInputForm
               onSubmit={handleBPSubmit}
               isLoading={isLogging}
+            />
+          }
+        />
+        <Route
+          path="/history"
+          element={<History readings={readings} isLoading={false} />}
+        />
+        <Route
+          path="/report"
+          element={
+            <ReportExport
+              user={user}
+              readings={readings}
+              narrative={narrative}
+              riskScore={riskScore}
             />
           }
         />

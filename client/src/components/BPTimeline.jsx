@@ -42,9 +42,21 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 export default function BPTimeline({ readings = [] }) {
-  const data = readings.length ? readings : MOCK;
-  const isUsingMock = !readings.length;
+  // Backend sends newest first — reverse for chronological chart display
+  const transformed = readings
+    .slice(0, 10)
+    .reverse()
+    .map(r => ({
+      date: new Date(r.createdAt).toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+      }),
+      systolic: r.systolic,
+      diastolic: r.diastolic,
+    }));
 
+  const data = transformed.length ? transformed : MOCK;
+  const isUsingMock = !transformed.length;
   return (
     <div className="bp-timeline">
       <div className="bp-timeline__header">

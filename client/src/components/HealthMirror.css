@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
 }
 
 .health-mirror__label {
@@ -12,20 +13,81 @@
   letter-spacing: 0.08em;
 }
 
-.health-mirror__narrative {
-  font-size: var(--text-base);
-  color: var(--text-primary);
-  line-height: 1.75;
+/* Letter */
+.health-mirror__letter {
+  background-color: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border-left: 3px solid var(--accent-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 400ms ease;
 }
 
-.health-mirror__empty {
-  font-size: var(--text-sm);
+.health-mirror__letter--normal   { border-left-color: var(--accent-safe); }
+.health-mirror__letter--elevated { border-left-color: var(--accent-warning); }
+.health-mirror__letter--high     { border-left-color: var(--accent-danger); }
+.health-mirror__letter--crisis   { border-left-color: #b91c1c; }
+
+.health-mirror__letter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.health-mirror__date {
+  font-size: var(--text-xs);
   color: var(--text-caption);
-  font-style: italic;
-  line-height: 1.6;
 }
 
-/* Loading skeleton */
+/* Risk tag */
+.health-mirror__risk-tag {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+}
+
+.health-mirror__risk-tag--normal   { background: var(--accent-safe-dim);    color: var(--accent-safe); }
+.health-mirror__risk-tag--elevated { background: var(--accent-warning-dim);  color: var(--accent-warning); }
+.health-mirror__risk-tag--high     { background: var(--accent-danger-dim);   color: var(--accent-danger); }
+.health-mirror__risk-tag--crisis   { background: rgba(185,28,28,0.15);       color: #f87171; }
+
+.health-mirror__salutation {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.health-mirror__body {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.health-mirror__body--empty {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.health-mirror__sign-off {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-top: 4px;
+  border-top: 1px solid var(--accent-muted);
+}
+
+.health-mirror__signature {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-safe);
+}
+
+/* Skeleton */
 .health-mirror__skeleton {
   display: flex;
   flex-direction: column;
@@ -33,7 +95,7 @@
 }
 
 .health-mirror__skeleton-line {
-  height: 14px;
+  height: 13px;
   background: linear-gradient(
     90deg,
     var(--bg-elevated) 25%,
@@ -45,10 +107,11 @@
   animation: shimmer 1.5s infinite;
 }
 
-.health-mirror__skeleton-line--full { width: 100%; }
-.health-mirror__skeleton-line--three-quarter { width: 75%; }
+.health-mirror__skeleton-line--full  { width: 100%; }
+.health-mirror__skeleton-line--wide  { width: 85%; }
+.health-mirror__skeleton-line--half  { width: 50%; }
 
 @keyframes shimmer {
-  0% { background-position: 200% 0; }
+  0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
