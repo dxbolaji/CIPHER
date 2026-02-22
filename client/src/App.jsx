@@ -101,8 +101,9 @@ export default function App() {
   if (!user) {
     return (
       <>
-        <ThemeToggle />
         <Onboarding onComplete={handleOnboardingComplete} />
+        <ThemeToggle />
+        
       </>
     );
   }
