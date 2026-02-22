@@ -1,3 +1,4 @@
+import React from "react";
 import "./VoiceOrb.css";
 
 export default function VoiceOrb({ mode = "optimal", isListening, isSpeaking, onClick }) {

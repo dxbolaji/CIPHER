@@ -1,23 +1,40 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useVoiceChat } from "../hooks/useVoiceChat";
 import "./VoiceChatDrawer.css";
 
 export default function VoiceChatDrawer({ isOpen, onClose, mode: initialMode = "optimal" }) {
   const [mode, setMode] = useState(initialMode);
-  const [messages, setMessages] = useState([]);
+  const [chatLog, setChatLog] = useState([]);
 
   const {
     isListening,
     isSpeaking,
     transcript,
+    response,
     error,
     startListening,
     stopListening,
   } = useVoiceChat(mode);
 
-  const prevTranscript = useState("")[0];
+  const prevTranscript = React.useRef("");
+  const prevResponse = React.useRef("");
 
-  function handleMicPress() {
+  React.useEffect(() => {
+    if (transcript && transcript !== prevTranscript.current) {
+      prevTranscript.current = transcript;
+      setChatLog(log => [...log, { role: "user", text: transcript }]);
+    }
+  }, [transcript]);
+
+  React.useEffect(() => {
+    if (response && response !== prevResponse.current) {
+      prevResponse.current = response;
+      setChatLog(log => [...log, { role: "cipher", text: response }]);
+    }
+  }, [response]);
+
+  function handleMicClick(e) {
+    e.stopPropagation();
     if (isListening) {
       stopListening();
     } else {
@@ -25,36 +42,18 @@ export default function VoiceChatDrawer({ isOpen, onClose, mode: initialMode = "
     }
   }
 
-  const [chatLog, setChatLog] = useState([]);
-
-  const handleStart = async () => {
-    if (isListening) {
-      stopListening();
-      return;
-    }
-    startListening();
-  };
-
-  const lastTranscript = useState("")[0];
-
   return (
     <div className={`vcd ${isOpen ? "vcd--open" : ""} vcd--${mode}`}>
-      {/* Backdrop */}
       {isOpen && <div className="vcd__backdrop" onClick={onClose} />}
 
-      {/* Drawer panel */}
-      <div className="vcd__panel">
-        {/* Handle bar */}
+      <div className="vcd__panel" onClick={(e) => e.stopPropagation()}>
         <div className="vcd__handle" onClick={onClose} />
 
-        {/* Header */}
         <div className="vcd__header">
           <div className="vcd__title">
             <span className="vcd__title-text">CIPHER Voice</span>
             <span className={`vcd__status-dot ${isListening ? "vcd__status-dot--active" : ""}`} />
           </div>
-
-          {/* Mode toggle */}
           <div className="vcd__mode-toggle">
             <button
               className={`vcd__mode-btn ${mode === "ghost" ? "vcd__mode-btn--active" : ""}`}
@@ -71,21 +70,20 @@ export default function VoiceChatDrawer({ isOpen, onClose, mode: initialMode = "
           </div>
         </div>
 
-        {/* Mode description */}
         <p className="vcd__mode-desc">
           {mode === "ghost"
             ? "I'm here with you. Take your time."
             : "You're doing great. Let's keep it going."}
         </p>
 
-        {/* Chat area */}
         <div className="vcd__chat">
-          {chatLog.length === 0 && (
+          {chatLog.length === 0 && !isListening && !isSpeaking && (
             <div className="vcd__empty">
               <p>Press the mic and start talking.</p>
               <p>CIPHER is listening.</p>
             </div>
           )}
+
           {chatLog.map((msg, i) => (
             <div key={i} className={`vcd__msg vcd__msg--${msg.role}`}>
               <span className="vcd__msg-label">{msg.role === "user" ? "You" : "CIPHER"}</span>
@@ -93,7 +91,6 @@ export default function VoiceChatDrawer({ isOpen, onClose, mode: initialMode = "
             </div>
           ))}
 
-          {/* Live transcript while listening */}
           {isListening && (
             <div className="vcd__msg vcd__msg--user vcd__msg--live">
               <span className="vcd__msg-label">You</span>
@@ -104,7 +101,6 @@ export default function VoiceChatDrawer({ isOpen, onClose, mode: initialMode = "
             </div>
           )}
 
-          {/* Speaking indicator */}
           {isSpeaking && (
             <div className="vcd__msg vcd__msg--cipher vcd__msg--live">
               <span className="vcd__msg-label">CIPHER</span>
@@ -115,17 +111,13 @@ export default function VoiceChatDrawer({ isOpen, onClose, mode: initialMode = "
             </div>
           )}
 
-          {/* Error */}
-          {error && (
-            <p className="vcd__error">{error}</p>
-          )}
+          {error && <p className="vcd__error">{error}</p>}
         </div>
 
-        {/* Mic button */}
         <div className="vcd__footer">
           <button
             className={`vcd__mic ${isListening ? "vcd__mic--active" : ""} ${isSpeaking ? "vcd__mic--speaking" : ""}`}
-            onClick={handleStart}
+            onClick={handleMicClick}
             aria-label={isListening ? "Stop listening" : "Start listening"}
           >
             {isListening ? <StopIcon /> : isSpeaking ? <WaveIcon /> : <MicIcon />}

@@ -107,7 +107,7 @@
 
 .onboarding__input::placeholder {
   color: var(--text-caption);
-  font-weight: 400;
+  font-weight: 10;
 }
 
 .onboarding__input:focus {

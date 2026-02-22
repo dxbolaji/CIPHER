@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Card from './Card';
@@ -6,6 +6,10 @@ import Button from './Button';
 import RiskDial from './RiskDial';
 import HealthMirror from './HealthMirror';
 import BPTimeline from './BPTimeline';
+import TremorOverlay from './TremorOverlay';
+import VoiceOrb from './VoiceOrb';
+import VoiceChatDrawer from './VoiceChatDrawer';
+import { useTremorDetection } from '../hooks/useTremorDetection';
 import './Dashboard.css';
 
 function getGreeting() {
@@ -19,6 +23,16 @@ export default function Dashboard({ user, readings = [], riskScore = null, narra
   const navigate = useNavigate();
   const firstName = user?.name?.split(' ')[0] || 'there';
   const lastReading = readings[readings.length - 1];
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [orbMode, setOrbMode] = useState('optimal');
+  const { tremorDetected, resetTremor } = useTremorDetection();
+
+  function handleLogFeeling() {
+    resetTremor();
+    setOrbMode('ghost');
+    setDrawerOpen(true);
+  }
 
   const avgSystolic = readings.length
     ? Math.round(readings.reduce((s, r) => s + r.systolic, 0) / readings.length)
@@ -113,6 +127,26 @@ export default function Dashboard({ user, readings = [], riskScore = null, narra
           Log Reading <ArrowRight size={16} />
         </Button>
       </Card>
+
+      {/* ── DX's features ── */}
+      <TremorOverlay
+        visible={tremorDetected}
+        onDismiss={resetTremor}
+        onLogFeeling={handleLogFeeling}
+      />
+
+      <VoiceOrb
+        mode={orbMode}
+        isListening={false}
+        isSpeaking={false}
+        onClick={() => setDrawerOpen(true)}
+      />
+
+      <VoiceChatDrawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        mode={orbMode}
+      />
     </div>
   );
 }

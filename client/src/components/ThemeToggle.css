@@ -28,9 +28,7 @@
     cursor: pointer;
   
     /* Glassmorphism */
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+    background: var(--toggle-track);
     border: 1px solid var(--glass-border);
     box-shadow:
       var(--shadow-md),
