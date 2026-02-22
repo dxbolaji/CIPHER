@@ -1,0 +1,98 @@
+/* ---------- DARK MODE (default) ---------- */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #080b14;
+  --bg-secondary: #0e1220;
+  --bg-card: #111827;
+  --bg-card-hover: #162033;
+  --bg-input: #0e1624;
+  --bg-surface: #111827;
+  --bg-elevated: #1A2236;
+
+  --text-primary: #f0f2f8;
+  --text-secondary: #8892a4;
+  --text-muted: #4a5568;
+
+  --accent-green: #00e87a;
+  --accent-green-dim: rgba(0, 232, 122, 0.15);
+  --accent-purple: #7c6cfc;
+  --accent-purple-dim: rgba(124, 108, 252, 0.15);
+  --accent-red: #ff4d6d;
+  --accent-yellow: #ffd166;
+
+  --border-color: rgba(255, 255, 255, 0.07);
+  --border-color-strong: rgba(255, 255, 255, 0.12);
+
+  --overlay-bg: rgba(0, 0, 0, 0.75);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.8);
+  --shadow-glow-green: 0 0 24px rgba(0, 232, 122, 0.25);
+  --shadow-glow-purple: 0 0 24px rgba(124, 108, 252, 0.3);
+
+  /* Glassmorphism — toggle button only */
+  --glass-bg: rgba(17, 24, 39, 0.6);
+  --glass-bg-strong: rgba(17, 24, 39, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(16px);
+  --glass-blur-strong: blur(24px);
+
+  /* Toggle */
+  --toggle-track: #1a2035;
+  --toggle-thumb-bg: #080b14;
+  --toggle-icon-color: #ffd166;
+  --toggle-border: rgba(255, 255, 255, 0.1);
+
+  /* Orb modes */
+  --orb-ghost: #7c6cfc;
+  --orb-optimal: #00e87a;
+}
+
+/* ---------- LIGHT MODE ---------- */
+[data-theme="light"] {
+  --bg-primary: #f0f4fc;
+  --bg-secondary: #e4eaf5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8faff;
+  --bg-input: #edf1fa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f8faff;
+
+  --text-primary: #0d1117;
+  --text-secondary: #4a5568;
+  --text-muted: #9aa5b4;
+
+  --accent-green: #00b85c;
+  --accent-green-dim: rgba(0, 184, 92, 0.12);
+  --accent-purple: #5b4de0;
+  --accent-purple-dim: rgba(91, 77, 224, 0.12);
+  --accent-red: #e63756;
+  --accent-yellow: #f0a500;
+
+  --border-color: rgba(0, 0, 0, 0.07);
+  --border-color-strong: rgba(0, 0, 0, 0.12);
+
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.18);
+  --shadow-glow-green: 0 0 24px rgba(0, 184, 92, 0.2);
+  --shadow-glow-purple: 0 0 24px rgba(91, 77, 224, 0.2);
+
+  /* Glassmorphism — toggle button only */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-strong: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-blur: blur(16px);
+  --glass-blur-strong: blur(24px);
+
+  /* Toggle */
+  --toggle-track: #dde4f0;
+  --toggle-thumb-bg: #ffffff;
+  --toggle-icon-color: #5b4de0;
+  --toggle-border: rgba(0, 0, 0, 0.1);
+
+  /* Orb modes */
+  --orb-ghost: #5b4de0;
+  --orb-optimal: #00b85c;
+}
