@@ -1,5 +1,3 @@
-// All API calls go through here.
-// Base URL pulls from .env — set REACT_APP_API_URL=http://localhost:5000 in your frontend .env
 
 const BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
